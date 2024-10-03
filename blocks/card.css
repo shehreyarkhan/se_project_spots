@@ -31,6 +31,7 @@
 }
 
 .card__title {
+    margin: 12px 0 0 0;
     font-size:20px;
     line-height: 24px;
     align-items: center;
