@@ -25,6 +25,8 @@
   align-items: center;
   background-size: contain;
   background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
 }
 
 .card__like-btn:hover {
