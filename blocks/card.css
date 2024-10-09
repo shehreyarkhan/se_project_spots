@@ -1,67 +1,67 @@
-
-
 .card__image {
-    height: 413px;
-    width: 413px;
-    object-fit: cover;
-    display: block;
-    margin: 0;
+  height: 413px;
+  width: 413px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
 }
 
 .card__content {
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
 }
 
 .card__like-btn {
-    margin-top: 12px;
-    background-image: url(../images/like.svg);
-    width: 23px;
-    height:20px;
-    border: none;
-    background-color: transparent;
-    opacity: 0.4;;
-    align-items: center;
-    background-size: contain;
-
+  margin-top: 12px;
+  background-image: url(../images/like.svg);
+  width: 23px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.4;
+  align-items: center;
+  background-size: contain;
 }
 
 .card__like-btn:hover {
-    opacity: 1;
-    cursor: pointer;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .card__title {
-    margin: 12px 0 0 0;
-    font-size:20px;
-    line-height: 24px;
-    align-items: center;
-    font-weight: 500px;
-    color: #212121
+  margin: 12px 0 0 0;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+  font-weight: 500px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 353px;
+  color: #212121;
 }
 
-@media screen and (max-width: 627px) { 
-.card__image {
+@media screen and (max-width: 627px) {
+  .card__image {
     height: 288px;
     width: 288px;
-}
+  }
 
-.card__title {
-    font-size:16px;
-    line-height:1;
+  .card__title {
+    font-size: 16px;
+    line-height: 1;
     font-weight: 500;
-}
+  }
 
-.card__like-btn {
+  .card__like-btn {
     width: 20px;
     height: 18px;
     background-size: contain;
-}
+  }
 
-.card__content {
+  .card__content {
     width: 100%;
-}
-
+  }
 }
