@@ -22,5 +22,4 @@ https://github.com/shehreyarkhan/se_project_spots
 https://shehreyarkhan.github.io/se_project_spots/
 ## Project Video Overview
 
-https://drive.google.com/file/d/1hr8PU8IHdrrPzhhFayro_9m_RJzxNTY5/view?usp=drive_link
-
+https://drive.google.com/file/d/1hr8PU8IHdrrPzhhFayro_9m_RJzxNTY5/view?usp=sharing
