@@ -13,6 +13,10 @@ This is the third project of the Software Engineering program at TripleTen. It w
 -   CSS animation and transform
 -   Smooth Transitions
 
-## Plan on improving the project
+## Github Project Link
 
-Add your ideas here :)
+https://github.com/shehreyarkhan/se_project_spots
+
+## Project Video Overview
+
+https://drive.google.com/file/d/1hr8PU8IHdrrPzhhFayro_9m_RJzxNTY5/view?usp=drive_link
