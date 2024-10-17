@@ -1,0 +1,123 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(33, 33, 33, 0.4);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  padding: 0 20px;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__container {
+  background: #fff;
+  padding: 32px 50px;
+  max-width: 730px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 8px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/close-icon.svg");
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.modal__close-btn:hover {
+  background-image: url("../images/close-icon-hover.svg");
+}
+
+.modal__title {
+  margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: rgba(21, 21, 21, 0.7);
+}
+
+.modal__input {
+  padding: 16px 12px 16px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(21, 21, 21, 0.4);
+  outline: none;
+}
+
+.modal__input::placeholder {
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(21, 21, 21, 0.3);
+  font-weight: 500;
+}
+
+.modal__input:focus {
+  border: 2px solid rgba(21, 21, 21, 0.6);
+}
+
+.modal__submit-btn {
+  width: 156px;
+  padding: 18px 0;
+  background-color: #212121;
+  color: #fff;
+  border-radius: 8px;
+  opacity: 0.5;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__submit-btn:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 627px) {
+  .modal {
+    padding: 0 10px;
+  }
+
+  .modal__container {
+    padding: 12px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin: 10px 0 34px;
+  }
+
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__submit-btn {
+    width: 100%;
+  }
+
+  .modal__input::placeholder {
+    font-size: 16px;
+  }
+}
