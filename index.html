@@ -32,8 +32,8 @@
             class="profile__avatar"
           />
           <div class="profile__column">
-            <h1 class="profile__name">Bessie Coleman</h1>
-            <p class="profile__description">Civial Aviator</p>
+            <h1 class="profile__name" id="user-name">Bessie Coleman</h1>
+            <p class="profile__description" id="profile-description">Civial Aviator</p>
             <button type="button" class="profile__edit-btn">
               <img
                 src="./images/pencil.svg"
@@ -133,13 +133,13 @@
           <button type="submit" id="modal-close-btn" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form">
-            <label class="modal__label" for="name">
+            <label class="modal__label" for="profile-name-input">
               Name
-              <input type="text" id="name" placeholder="Enter your name" class="modal__input" />
+              <input type="text" id="profile-name-input" placeholder="Enter your name" class="modal__input" />
             </label>
-            <label class="modal__label" for="description">
+            <label class="modal__label" for="profile-description-input">
               Description
-              <input type="text" id="description" placeholder="Enter your description" class="modal__input" />
+              <input type="text" id="profile-description-input" placeholder="Enter your description" class="modal__input" />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
