@@ -33,7 +33,9 @@
           />
           <div class="profile__column">
             <h1 class="profile__name" id="user-name">Bessie Coleman</h1>
-            <p class="profile__description" id="profile-description">Civial Aviator</p>
+            <p class="profile__description" id="profile-description">
+              Civial Aviator
+            </p>
             <button type="button" class="profile__edit-btn">
               <img
                 src="./images/pencil.svg"
@@ -56,18 +58,13 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <img
-                  src=""
-                  alt=""
-                  class="card__image"
-                />
+                <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button type="button" class="card__like-btn"></button>
                 </div>
               </li>
             </template>
-          
           </ul>
         </section>
       </main>
@@ -76,16 +73,30 @@
       </footer>
       <div class="modal" id="edit-modal">
         <div class="modal__container">
-          <button type="submit" id="modal-close-btn" class="modal__close-btn"></button>
+          <button
+            type="submit"
+            id="modal-close-btn"
+            class="modal__close-btn"
+          ></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form">
             <label class="modal__label" for="profile-name-input">
               Name
-              <input type="text" id="profile-name-input" placeholder="Enter your name" class="modal__input" />
+              <input
+                type="text"
+                id="profile-name-input"
+                placeholder="Enter your name"
+                class="modal__input"
+              />
             </label>
             <label class="modal__label" for="profile-description-input">
               Description
-              <input type="text" id="profile-description-input" placeholder="Enter your description" class="modal__input" />
+              <input
+                type="text"
+                id="profile-description-input"
+                placeholder="Enter your description"
+                class="modal__input"
+              />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
