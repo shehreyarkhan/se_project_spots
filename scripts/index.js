@@ -27,9 +27,7 @@ const initialCards = [
 
 const profileName = document.querySelector("#user-name");
 const profileDescription = document.querySelector("#profile-description");
-
 const profileEditBtn = document.querySelector(".profile__edit-btn");
-
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
 const modalCloseBtn = editModal.querySelector("#modal-close-btn");
@@ -37,7 +35,6 @@ const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
-console.log("modal" + editModalNameInput);
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
