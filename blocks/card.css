@@ -1,4 +1,4 @@
-.card{
+.card {
   position: relative;
 }
 
@@ -9,7 +9,6 @@
   display: block;
   margin: 0;
   border-radius: 8px;
-
 }
 
 .card__content {
@@ -31,7 +30,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   padding: 0;
-  color:#212121;
+  color: #212121;
 }
 
 .card__like-btn:hover {
@@ -54,14 +53,14 @@
   height: 32px;
   background-color: transparent;
   position: absolute;
-  top:10px;
+  top: 10px;
   right: 10px;
   border: none;
   cursor: pointer;
 }
 
 .card__delete-btn:hover {
-  background-image: url(../images/delete-hover.png)
+  background-image: url(../images/delete-hover.png);
 }
 
 .card__title {
