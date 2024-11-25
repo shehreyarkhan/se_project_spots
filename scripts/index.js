@@ -35,7 +35,7 @@ const profileEditBtn = document.querySelector(".profile__edit-btn");
 const cardModalBtn = document.querySelector(".profile__add-btn");
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
-const modalCloseBtn = editModal.querySelector("#modal-close-btn");
+const profileCloseButton = editModal.querySelector("#modal-close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
@@ -45,7 +45,7 @@ const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
 const cardModal = document.querySelector("#add-card-modal");
-const cardModalCloseBtn = cardModal.querySelector("#modal-close-btn");
+const cardModalCloseBtn = cardModal.querySelector("#add-modal-close-btn");
 const cardForm = document.querySelector(".add-card-form");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -104,7 +104,7 @@ function getCardElement(data) {
 
     previewModalImageEl.src = data.link;
     previewModalCaptionEl.textContent = data.name;
-    previewModalImageEl.alt = data.title;
+    previewModalImageEl.alt = data.name;
   });
 
   const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
@@ -130,20 +130,21 @@ function getCardElement(data) {
 }
 
 function openModal(modal) {
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
+  
   modal.classList.add("modal_opened");
 }
 
 profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
+  editModalNameInput.value = profileName.textContent;
+  editModalDescriptionInput.value = profileDescription.textContent;
 });
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
-modalCloseBtn.addEventListener("click", () => {
+profileCloseButton.addEventListener("click", () => {
   closeModal(editModal);
 });
 
