@@ -83,7 +83,7 @@
   cursor: pointer;
 }
 
-.modal__close_type_preview {
+.modal__close-btn_type_preview {
   position: absolute;
   background-image: url("../images/close.png");
   top: 0;
@@ -179,7 +179,7 @@
     font-size: 16px;
   }
 
-  .modal__close_type_preview {
+  .modal__close-btn_type_preview {
     right: 0;
     top: -38px;
   }
