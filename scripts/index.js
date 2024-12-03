@@ -59,7 +59,7 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const modalCloseTypePreview = previewModal.querySelector(
-  ".modal__close_type_preview"
+  ".modal__close-btn_type_preview"
 );
 
 function handleEditFormSubmit(e) {
