@@ -140,16 +140,15 @@
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;
-  background-color: #212121;
+  background-color: rgb(33,33,33,1);
   color: #fff;
   border-radius: 8px;
-  opacity: 0.5;
   border: none;
   cursor: pointer;
 }
 
 .modal__submit-btn:hover {
-  opacity: 1;
+  background-color: rgba(33,33,33,0.8);
 }
 
 @media screen and (max-width: 627px) {
