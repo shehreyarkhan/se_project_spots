@@ -137,6 +137,13 @@
   border: 2px solid rgba(21, 21, 21, 0.6);
 }
 
+.modal__error {
+  display: block;
+  color: red;
+  margin: 0;
+  /** Correct color and font sizes */
+}
+
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;
