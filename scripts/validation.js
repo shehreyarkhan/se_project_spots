@@ -3,12 +3,17 @@ const showInputError = (formElement, inputElement, errorMessage) => {
     const errorMsgEl = formElement.querySelector("#" + errorMsgID);
     errorMsgEl.textContent = errorMessage;
     console.log(errorMsgID);
+    inputElement.classList.add("modal__input_type_error")
+    errorMsgEl.classList.add("modal__error_top_margin")
 }
 
 const hideInputError = (formElement, inputElement) => {
     const errorMsgID = inputElement.id + '-error';
     const errorMsgEl = formElement.querySelector("#" + errorMsgID);
     errorMsgEl.textContent = ""
+    inputElement.classList.remove("modal__input_type_error")
+    errorMsgEl.classList.remove("modal__error_top_margin")
+
 }
 
 const checkInputValidity = (formElement, inputElement, errorMessage) => {

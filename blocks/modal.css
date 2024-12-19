@@ -111,7 +111,6 @@
 .modal__label {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   margin-bottom: 32px;
   font-size: 16px;
   font-weight: 500;
@@ -122,8 +121,13 @@
 .modal__input {
   padding: 16px 12px 16px 12px;
   border-radius: 8px;
+  margin: 8px 0 0 0;
   border: 1px solid rgba(21, 21, 21, 0.4);
   outline: none;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255,0,0,0.6);
 }
 
 .modal__input::placeholder {
@@ -133,15 +137,22 @@
   font-weight: 500;
 }
 
-.modal__input:focus {
-  border: 2px solid rgba(21, 21, 21, 0.6);
+.modal__input:hover {
+  border: 1px solid rgba(21, 21, 21, 1);
 }
+
 
 .modal__error {
   display: block;
-  color: red;
-  margin: 0;
-  /** Correct color and font sizes */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #ff0000;
+  opacity: 0.7;
+}
+
+.modal__error_top_margin {
+  margin-top:8px;
 }
 
 .modal__submit-btn {
