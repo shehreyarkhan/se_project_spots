@@ -60,7 +60,7 @@ function handleOverlayClick(event) {
   }
 }
 
-function getCardElement(data) {
+const getCardElement = (data) => {
   const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
   const cardNameEl = cardElement.querySelector(".card__title");
   cardNameEl.textContent = data.name;
@@ -125,9 +125,6 @@ editFormElement.addEventListener("submit", (e) => {
 
 cardModalBtn.addEventListener("click", () => {
   openModal(cardModal);
-  cardForm.reset();
-  resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
-  disabledButton(cardSubmitBtn, settings);
 });
 
 cardModalCloseBtn.addEventListener("click", () => closeModal(cardModal));
