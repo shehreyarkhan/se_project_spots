@@ -63,7 +63,6 @@ const modalCloseTypePreview = previewModal.querySelector(
   ".modal__close-btn_type_preview"
 );
 
-// Add Modal Functions with Escape and Overlay click handling
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscapeKey);
@@ -87,7 +86,6 @@ function handleOverlayClick(event) {
   }
 }
 
-// Card creation and handling
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -125,7 +123,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-// Form Handlers
 function handleEditFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = editModalNameInput.value;
@@ -135,32 +132,96 @@ function handleEditFormSubmit(e) {
 
 function handleAddCardSubmit(e) {
   e.preventDefault();
-  const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
+
+  // Check for non-empty inputs
+  if (!cardNameInput.value.trim() || !cardLinkInput.value.trim()) {
+    return; // Prevent submission of an empty card
+  }
+
+  const inputValues = {
+    name: cardNameInput.value.trim(),
+    link: cardLinkInput.value.trim(),
+  };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  closeModal(cardModal);
+
+  // Reset the form and disable the button
   cardForm.reset();
+  cardSubmitBtn.disabled = true; // Disable the button
+  cardSubmitBtn.classList.add("modal__submit-btn_disabled"); // Add disabled styling
+
+  resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
+
+  closeModal(cardModal);
 }
 
-// Modal Event Listeners
+function toggleEditSubmitButton() {
+  const isNameChanged =
+    editModalNameInput.value.trim() !== profileName.textContent.trim();
+  const isDescriptionChanged =
+    editModalDescriptionInput.value.trim() !==
+    profileDescription.textContent.trim();
+
+  const hasChanges = isNameChanged || isDescriptionChanged;
+
+  const editSubmitBtn = editFormElement.querySelector(".modal__submit-btn");
+  editSubmitBtn.disabled = !hasChanges;
+  editSubmitBtn.classList.toggle("modal__submit-btn_disabled", !hasChanges);
+}
+
 profileEditBtn.addEventListener("click", () => {
   openModal(editModal);
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, [
-    editModalNameInput,
-    editModalDescriptionInput,
-  ]);
+
+  editModalNameInput.value = profileName.textContent.trim();
+  editModalDescriptionInput.value = profileDescription.textContent.trim();
+
+  resetValidation(
+    editFormElement,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
+
+  toggleEditSubmitButton();
 });
+
 profileCloseButton.addEventListener("click", () => closeModal(editModal));
 editModal.addEventListener("click", handleOverlayClick);
 
 modalCloseTypePreview.addEventListener("click", () => closeModal(previewModal));
 previewModal.addEventListener("click", handleOverlayClick);
 
+editFormElement.addEventListener("submit", (e) => {
+  if (editFormElement.querySelector(".modal__submit-btn").disabled) {
+    e.preventDefault();
+  } else {
+    handleEditFormSubmit(e);
+  }
+});
+editFormElement.addEventListener("submit", (e) => {
+  if (editFormElement.querySelector(".modal__submit-btn").disabled) {
+    e.preventDefault();
+  } else {
+    handleEditFormSubmit(e);
+  }
+});
+
+[editModalNameInput, editModalDescriptionInput].forEach((input) => {
+  input.addEventListener("input", toggleEditSubmitButton);
+});
+
+
 cardModalBtn.addEventListener("click", () => openModal(cardModal));
 cardModalCloseBtn.addEventListener("click", () => closeModal(cardModal));
 cardModal.addEventListener("click", handleOverlayClick);
 
-editFormElement.addEventListener("submit", (e) => handleEditFormSubmit(e));
 cardForm.addEventListener("submit", (e) => handleAddCardSubmit(e));
+
+[cardNameInput, cardLinkInput].forEach((input) => {
+  input.addEventListener("input", () => {
+    const allValid = cardNameInput.value.trim() && cardLinkInput.value.trim();
+    cardSubmitBtn.disabled = !allValid;
+    cardSubmitBtn.classList.toggle("modal__submit-btn_disabled", !allValid);
+  });
+});
+
+

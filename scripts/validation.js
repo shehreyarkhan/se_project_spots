@@ -51,9 +51,9 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     buttonElement.classList.add(config.inactiveButtonClass);
   }
   
-  const resetValidation = (formElement, inputList) => {
+  const resetValidation = (formElement, inputList, config) => {
    inputList.forEach((input) => {
-    hideInputError(formElement, input, settings);
+    hideInputError(formElement, input, config);
    });
   }
 
@@ -79,6 +79,5 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     });
   };
   
-  // Call the enableValidation function to initialize the functionality
   enableValidation(settings);
   
