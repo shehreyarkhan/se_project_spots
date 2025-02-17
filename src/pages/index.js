@@ -1,4 +1,5 @@
 import "./index.css";
+import Api from '../utils/Api.js';
 
 import { enableValidation, settings } from "../scripts/validation.js";
 
@@ -41,8 +42,26 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+
 enableValidation(settings);
 
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "5f779d3c-896b-494e-aafa-ddbd9a6b1cb3",
+    "Content-Type": "application/json"
+  }
+});
+
+api.getInitialCards().then((cards) => {
+  cards.forEach((item) => {
+    const cardElement = getCardElement(item);
+    cardsList.append(cardElement);
+  })
+}).catch((err)=>{
+  console.error(err);
+});;
 
 // Open and close modal utility functions
 function openModal(modal) {
@@ -58,7 +77,7 @@ function closeModal(modal) {
 // Handle Escape key to close modal
 function handleEscapeKey(event) {
   if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
+    const openModal = documesnt.querySelector(".modal_opened");
     if (openModal) closeModal(openModal);
   }
 }
