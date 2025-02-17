@@ -1,3 +1,7 @@
+import "./index.css";
+
+import { enableValidation, settings } from "../scripts/validation.js";
+
 const initialCards = [
   { name: "Griffin Wooldridge", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg" },
   { name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg" },
@@ -37,6 +41,8 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+enableValidation(settings);
+
 
 // Open and close modal utility functions
 function openModal(modal) {
