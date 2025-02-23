@@ -24,12 +24,19 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
+         <div class="profile__avatar-container">
+
+           <button class="profile__avatar-btn">
+             <img src="<%=require('./images/pencil.svg')%>" alt="Pencil icon" class="profile__pencil-icon" />
+             
+            </button>
+            <img
             src="<%=require('./images/avatar.jpg')%>"
             alt="profile avatar"
             class="profile__avatar"
             id="user-image"
-          />
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name" id="user-name">Bessie Coleman</h1>
             <p class="profile__description" id="profile-description">Civial Aviator</p>
