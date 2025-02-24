@@ -46,7 +46,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     }
   };
 
-  const disabledButton = (buttonElement, config) => {
+  export const disabledButton = (buttonElement, config) => {
     buttonElement.disabled = true;
     buttonElement.classList.add(config.inactiveButtonClass);
   }

@@ -1,6 +1,6 @@
 
 export default class Api {
-    constructor({baseUrl, headers}) {
+    constructor(baseUrl, headers) {
       // constructor body
       this.baseUrl = baseUrl;
       this.headers = headers;
@@ -33,7 +33,7 @@ export default class Api {
         });
     }
 
-    editUserInfo({ name, about }) {
+     editUserInfo({ name, about }) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: "PATCH",
         headers: this._headers,
@@ -41,6 +41,41 @@ export default class Api {
         body: JSON.stringify({
           name,
           about,
+        }),
+      }).then(res => {
+        if (res.ok){
+          console.log(res.json());
+          return res.json();
+        }
+        Promise.reject(`Error: ${res.status}`);
+      });
+    }
+
+   async  addPostCards(name, link){
+      return fetch(`${this.baseUrl}/cards`, {
+        method: "POST",
+        headers: this.headers,
+        // Send the data in the body as a JSON string.
+        body: JSON.stringify({
+          name,
+          link,
+        }),
+      }).then(res => {
+        if (res.ok) {
+          console.log(res.json())
+          return res.json();
+        }
+        Promise.reject(`Error: ${res.status}`);
+      });
+    };
+
+  async  editAvatarInfo( avatar ) {
+      return fetch(`${this.baseUrl}/users/me/avatar`, {
+        method: "PATCH",
+        headers: this.headers,
+        // Send the data in the body as a JSON string.
+        body: JSON.stringify({
+          avatar
         }),
       }).then(res => {
         if (res.ok) {

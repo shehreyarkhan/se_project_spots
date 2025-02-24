@@ -175,6 +175,16 @@
   background-color: rgba(21,21,21,0.5)
 }
 
+.modal__cancel-btn {
+  width: 156px;
+  padding: 18px 0;
+  background-color: rgb(196, 193, 193);
+  color: #000;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
