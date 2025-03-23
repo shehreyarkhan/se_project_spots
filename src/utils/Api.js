@@ -1,6 +1,6 @@
 
-export default class Api {
-    constructor(baseUrl, headers) {
+class Api {
+    constructor({baseUrl, headers}) {
       // constructor body
       this.baseUrl = baseUrl;
       this.headers = headers;
@@ -34,9 +34,9 @@ export default class Api {
     }
 
      editUserInfo({ name, about }) {
-      return fetch(`${this._baseUrl}/users/me`, {
+      return fetch(`${this.baseUrl}/users/me`, {
         method: "PATCH",
-        headers: this._headers,
+        headers: this.headers,
         // Send the data in the body as a JSON string.
         body: JSON.stringify({
           name,
@@ -86,4 +86,5 @@ export default class Api {
     }
   }
   
+  export default Api;
   // export the class
