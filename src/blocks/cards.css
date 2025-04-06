@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   gap: 40px 20px;
-  justify-content: center;
+  justify-content: start;
 }
 
 @media screen and (max-width: 627px) {

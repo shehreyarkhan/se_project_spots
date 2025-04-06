@@ -1,4 +1,5 @@
 .modal {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,6 +23,7 @@
 }
 
 .modal__content {
+
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
@@ -54,15 +56,15 @@
   margin: 8px 0 0 0;
   color: #fff;
   display: inline-block;
-  font-family: Poppins, "Helvetica Neue", Helvetica, Arial;
   font-size: 20px;
   line-height: 1.2;
   font-weight: 500;
 }
 
 .modal__container {
+  align-items: center;
+  justify-content: center;
   background: #fff;
-  padding: 32px 50px;
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
@@ -72,9 +74,6 @@
 }
 
 .modal__close-btn {
-  position: absolute;
-  top: 32px;
-  right: 50px;
   width: 40px;
   height: 40px;
   background-image: url("../images/close-icon.svg");
@@ -101,14 +100,30 @@
   background-image: url("../images/close-icon-hover.svg");
 }
 
+.modal__delete-close-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/close.png");
+  border: none;
+  cursor: pointer;
+}
+
 .modal__title {
-  margin: 0 0 32px;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
   font-size: 32px;
   font-weight: 500;
   line-height: 1;
 }
 
+.modal__title_centered {
+  align-items: center;
+  justify-content: space-between;
+}
+
 .modal__label {
+  text-align: start;
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
@@ -159,12 +174,15 @@
 
 .modal__submit-btn {
   width: 156px;
-  padding: 18px 0;
+  height: 52px;
+  padding: 18px 32px;
   background-color: rgb(33,33,33,1);
   color: #fff;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  margin-right: 20px;
+  align-self: flex-start;
 }
 
 .modal__submit-btn:hover {
@@ -175,14 +193,46 @@
   background-color: rgba(21,21,21,0.5)
 }
 
+.modal__submit_delete-btn {
+  background-color: #ff6565;
+  color: #fff;
+}
+
+.modal__submit_delete-btn:hover {
+  background-color: #ff3333;
+}
+
+.modal__submit_delete-btn_disabled {
+  background-color: #ff3333;
+}
+ .modal__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 630px;
+  justify-content: flex-start;
+  padding: 0 50px 32px 50px;
+ }
+
+ .modal__header {
+  padding: 32px 50px;
+  display: flex;
+  max-width: 630px;
+  justify-content: space-between;
+ }
+
 .modal__cancel-btn {
   width: 156px;
   padding: 18px 0;
-  background-color: rgb(196, 193, 193);
-  color: #000;
+  border: 1px solid #212121;
+  background-color: #fff;
+  color: #212121;
   border-radius: 8px;
-  border: none;
   cursor: pointer;
+}
+
+.modal__cancel-btn:hover {
+  background-color: #212121;
+  color: #fff;
 }
 
 @media screen and (max-width: 627px) {
@@ -199,13 +249,17 @@
     margin: 10px 0 34px;
   }
 
+  .modal__title_centered {
+    text-align: center;
+  }
+
   .modal__close-btn {
     top: 12px;
     right: 12px;
   }
 
   .modal__submit-btn {
-    width: 100%;
+    margin: 0 0 12px 0;
   }
 
   .modal__input::placeholder {

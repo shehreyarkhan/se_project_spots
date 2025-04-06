@@ -35,7 +35,10 @@ const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const modalCloseTypePreview = previewModal.querySelector(".modal__close-btn_type_preview");
 
+
 const deleteModal = document.querySelector("#delete-modal");
+const deleteModalXBtn = deleteModal.querySelector(".modal__close-btn_type_preview");
+
 const deleteBtn = deleteModal.querySelector(".modal__submit-btn");
 const deleteModalCloseBtn = deleteModal.querySelector("#modal-close-btn");
 
@@ -242,6 +245,7 @@ avatarModalCloseBtn.addEventListener("click", () => closeModal(avatarModal));
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 deleteModalCloseBtn.addEventListener("click", () => closeModal(deleteModal));
+deleteModalXBtn.addEventListener("click", () => closeModal(deleteModal));
 
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("mousedown", handleOverlayClick);
