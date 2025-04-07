@@ -40,7 +40,7 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteModalXBtn = deleteModal.querySelector(".modal__close-btn_type_preview");
 
 const deleteBtn = deleteModal.querySelector(".modal__submit-btn");
-const deleteModalCloseBtn = deleteModal.querySelector("#modal-close-btn");
+const deleteModalCloseBtn = deleteModal.querySelector("#modal-delete-close-btn");
 
 let selectedCard;
 let selectedCardId;
