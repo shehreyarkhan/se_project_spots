@@ -69,17 +69,12 @@ const api = new Api({
 
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, user]) => {  // user comes here
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
     });
-  })
-  .catch(console.error);
 
-api
-  .getUserInfo()
-  .then((user) => {
     profileName.textContent = user?.name;
     profileDescription.textContent = user?.about.trim();
     profileImage.src = user?.avatar;
@@ -158,16 +153,18 @@ function handleDeleteSubmit() {
     submitButton.textContent = "Deleting...";
     submitButton.disabled = true;
 
-    api
-      .deleteCard(selectedCardId)
+    api.deleteCard(selectedCardId)
       .then(() => {
         selectedCard.remove();
         closeModal(deleteModal);
+        disabledButton(deleteBtn, settings); // Disable after successful deletion
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error(err);
+        submitButton.disabled = false; // Re-enable on error
+      })
       .finally(() => {
-        submitButton.textContent = "Delete";
-        submitButton.disabled = false;
+        submitButton.textContent = "Delete"; // Reset text in all cases
         selectedCard = null;
         selectedCardId = null;
       });
@@ -194,16 +191,17 @@ function handleAddCardSubmit(e) {
       cardsList.prepend(newCard);
       cardForm.reset();
       closeModal(cardModal);
-      disabledButton(cardSubmitBtn, settings); // Properly disable after success
+      disabledButton(cardSubmitBtn, settings);  // Disable after success
     })
     .catch((err) => {
       console.error(err);
-      submitButton.disabled = false; // Re-enable on error
+      submitButton.disabled = false;  // Re-enable on error
     })
     .finally(() => {
-      submitButton.textContent = "Save"; // Reset text in all cases
+      submitButton.textContent = "Save";  // Only reset text here
     });
 }
+
 function handleEditFormSubmit(e) {
   e.preventDefault();
   const submitButton = e.submitter;
