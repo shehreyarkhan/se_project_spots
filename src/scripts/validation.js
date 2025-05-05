@@ -46,12 +46,12 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     }
   };
 
-  const disabledButton = (buttonElement, config) => {
+  export const disabledButton = (buttonElement, config) => {
     buttonElement.disabled = true;
     buttonElement.classList.add(config.inactiveButtonClass);
   }
   
-  const resetValidation = (formElement, inputList, config) => {
+  export const resetValidation = (formElement, inputList, config) => {
    inputList.forEach((input) => {
     hideInputError(formElement, input, config);
    });

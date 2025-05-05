@@ -20,18 +20,33 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="<%=require('./images/Logo.svg')%>" alt="Spots logo" class="header__logo" />
+        <img
+          src="<%=require('./images/Logo.svg')%>"
+          alt="Spots logo"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="profile avatar"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button id="profile__avatar-btn" class="profile__avatar-btn">
+              <img
+                type="url"
+                src="<%=require('./images/pencil-white.svg')%>"
+                alt="Pencil icon"
+                class="profile__pencil-icon"
+              />
+            </button>
+            <img
+              src="<%=require('./images/avatar.png')%>"
+              alt="profile avatar"
+              class="profile__avatar"
+              id="user-image"
+            />
+          </div>
           <div class="profile__column">
-            <h1 class="profile__name" id="user-name">Bessie Coleman</h1>
-            <p class="profile__description" id="profile-description">Civial Aviator</p>
+            <h1 class="profile__name" id="user-name"></h1>
+            <p class="profile__description" id="profile-description"></p>
             <button type="button" class="profile__edit-btn">
               <img
                 src="<%=require('./images/pencil.svg')%>"
@@ -70,12 +85,14 @@
       </footer>
       <div class="modal" id="edit-modal">
         <div class="modal__container">
-          <button
-            type="button"
-            id="modal-close-btn"
-            class="modal__close-btn"
-          ></button>
-          <h2 class="modal__title">Edit profile</h2>
+          <div class="modal__header">
+            <h2 class="modal__title">Edit profile</h2>
+            <button
+              type="button"
+              id="modal-close-btn"
+              class="modal__close-btn"
+            ></button>
+          </div>
           <form name="edit-profile" class="modal__form" novalidate>
             <label class="modal__label" for="profile-name-input">
               Name
@@ -101,7 +118,10 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span id="profile-description-input-error" class="modal__error"></span>
+              <span
+                id="profile-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -110,12 +130,14 @@
 
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
-          <button
-            type="button"
-            id="add-modal-close-btn"
-            class="modal__close-btn"
-          ></button>
-          <h2 class="modal__title">New Post</h2>
+          <div class="modal__header">
+            <h2 class="modal__title">New Post</h2>
+            <button
+              type="button"
+              id="add-modal-close-btn"
+              class="modal__close-btn"
+            ></button>
+          </div>
           <form name="edit-profile" class="modal__form" novalidate>
             <label class="modal__label" for="add-card-link-input">
               Image Link
@@ -127,10 +149,7 @@
                 class="modal__input"
                 required
               />
-              <span
-                id="add-card-link-input-error"
-                class="modal__error"
-              ></span>
+              <span id="add-card-link-input-error" class="modal__error"></span>
             </label>
             <label class="modal__label" for="add-card-name-input">
               Caption
@@ -144,10 +163,7 @@
                 minlength="2"
                 maxlength="30"
               />
-              <span
-                id="add-card-name-input-error"
-                class="modal__error"
-              ></span>
+              <span id="add-card-name-input-error" class="modal__error"></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -163,6 +179,62 @@
         ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <div class="modal__header">
+          <h2 class="modal__title">Edit profile avatar</h2>
+
+          <button
+            type="button"
+            id="modal-close-btn"
+            class="modal__close-btn"
+          ></button>
+        </div>
+        <form name="edit-avatar-form" class="modal__form" novalidate>
+          <label class="modal__label" for="profile-avatar-input">
+            Profile picture
+            <input
+              id="profile-avatar-input"
+              name="avatar"
+              placeholder="Avatar"
+              class="modal__input"
+              type="url"
+              required
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-modal">
+      <div class="modal__container modal__container_centered">
+        <button
+          aria-label="Close modal"
+          class="modal__close-btn modal__close-btn_type_preview"
+          type="button"
+        ></button>
+        <h2 class="modal__title modal__title_styled">
+          Are you sure you want to delete this image?
+        </h2>
+        <form
+          name="delete-form"
+          class="modal__form modal__form_centered"
+          novalidate
+        >
+          <button
+            type="button"
+            class="modal__submit-btn modal__submit_delete-btn"
+          >
+            Delete
+          </button>
+          <button type="button" id="modal-delete-close-btn" class="modal__cancel-btn">
+            Cancel
+          </button>
+        </form>
       </div>
     </div>
   </body>

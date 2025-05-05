@@ -1,4 +1,5 @@
 .modal {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,6 +23,7 @@
 }
 
 .modal__content {
+
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
@@ -54,15 +56,16 @@
   margin: 8px 0 0 0;
   color: #fff;
   display: inline-block;
-  font-family: Poppins, "Helvetica Neue", Helvetica, Arial;
   font-size: 20px;
   line-height: 1.2;
   font-weight: 500;
 }
 
 .modal__container {
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
   background: #fff;
-  padding: 32px 50px;
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
@@ -71,10 +74,11 @@
   transform: translateY(0);
 }
 
+.modal__container_centered {
+  margin: 0;
+}
+
 .modal__close-btn {
-  position: absolute;
-  top: 32px;
-  right: 50px;
   width: 40px;
   height: 40px;
   background-image: url("../images/close-icon.svg");
@@ -101,14 +105,32 @@
   background-image: url("../images/close-icon-hover.svg");
 }
 
+.modal__delete-close-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/close.png");
+  border: none;
+  cursor: pointer;
+}
+
 .modal__title {
-  margin: 0 0 32px;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
   font-size: 32px;
   font-weight: 500;
   line-height: 1;
 }
 
+.modal__title_styled {
+  padding: 32px 20px 32px 20px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
 .modal__label {
+  text-align: start;
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
@@ -159,12 +181,15 @@
 
 .modal__submit-btn {
   width: 156px;
-  padding: 18px 0;
+  height: 52px;
+  padding: 18px 32px;
   background-color: rgb(33,33,33,1);
   color: #fff;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  margin-right: 20px;
+  align-self: flex-start;
 }
 
 .modal__submit-btn:hover {
@@ -175,27 +200,104 @@
   background-color: rgba(21,21,21,0.5)
 }
 
+.modal__submit_delete-btn {
+  background-color: #ff6565;
+  color: #fff;
+}
+
+.modal__submit_delete-btn:hover {
+  background-color: #ff3333;
+}
+
+.modal__submit_delete-btn_disabled {
+  background-color: #ff3333;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 630px;
+  justify-content: flex-start;
+  padding: 0 50px 32px 50px;
+ }
+
+ .modal__form_centered {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+ }
+
+.modal__header {
+  padding: 32px 50px;
+  display: flex;
+  max-width: 630px;
+  justify-content: space-between;
+ }
+
+.modal__cancel-btn {
+  width: 156px;
+  padding: 18px 0;
+  border: 1px solid #212121;
+  background-color: #fff;
+  color: #212121;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal__cancel-btn:hover {
+  background-color: #212121;
+  color: #fff;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
   }
 
-  .modal__container {
-    padding: 12px;
+  .modal__header{
+    padding: 0;
+    align-items: center;
+  }
+
+  .modal__label{
+    display: flex;
+    text-align: start;
+    margin-bottom: 20px;
+  }
+
+  .modal__container_centered {
+    margin: 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
   }
 
   .modal__title {
     font-size: 20px;
-    margin: 10px 0 34px;
+    margin-bottom: 20px;
+    padding: 0 0;
+  }
+
+  .modal__title_styled {
+    text-align: center;
   }
 
   .modal__close-btn {
-    top: 12px;
-    right: 12px;
+    margin-bottom: 16px;
   }
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__submit_delete-btn{
+
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
+    justify-content: center;
   }
 
   .modal__input::placeholder {
@@ -204,8 +306,22 @@
 
   .modal__close-btn_type_preview {
     right: 0;
-    top: -38px;
+    top: -54px;
   }
+
+  .modal__form {
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
+  }
+
+  .modal__form_centered {
+    width: 156px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
 
   .modal__image {
     width: 100%;
